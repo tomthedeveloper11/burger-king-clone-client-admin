@@ -99,7 +99,9 @@ export const deleteCategory = (id) => {
   return (dispatch, getState) => {
     fetch('https://burger-king-clone.herokuapp.com/categories/' + id, {
       method: 'DELETE',
-      access_token: localStorage.access_token,
+      headers: {
+        access_token: localStorage.access_token,
+      }
     })
       .then(async (res) => {
         const data = await res.json()
